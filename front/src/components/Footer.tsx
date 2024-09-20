@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
@@ -21,16 +21,13 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="flex justify-center space-x-4">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <a href="https://www.facebook.com/sinval.leite.9" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <FaFacebook className="text-2xl hover:text-blue-600" />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <FaTwitter className="text-2xl hover:text-blue-400" />
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="https://www.instagram.com/sinval_soares/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <FaInstagram className="text-2xl hover:text-pink-500" />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/sinval-leite-8b3762216/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <FaLinkedin className="text-2xl hover:text-blue-700" />
           </a>
         </div>
