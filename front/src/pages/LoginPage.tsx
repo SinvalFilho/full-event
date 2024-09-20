@@ -9,11 +9,11 @@ const LoginPage: React.FC = () => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth(); // Usa o contexto de autenticação
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/events');
+      navigate('/events'); // Redireciona para a página de eventos se já estiver autenticado
     }
   }, [isAuthenticated, navigate]);
 
@@ -23,8 +23,8 @@ const LoginPage: React.FC = () => {
     setMessage('');
     try {
       const response = await api.post('/signin', { email, password });
-      localStorage.setItem('token', response.data.token);
-      navigate('/events');
+      localStorage.setItem('token', response.data.token); // Salvando o token localmente
+      navigate('/events'); // Redirecionar para a página de eventos após login
     } catch (error: any) {
       setMessage('E-mail ou senha incorretos');
     } finally {

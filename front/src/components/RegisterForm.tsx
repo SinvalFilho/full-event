@@ -10,10 +10,10 @@ const RegisterForm: React.FC = () => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth(); // Usa o contexto de autenticação
 
   if (isAuthenticated) {
-    navigate('/');
+    navigate('/'); // Redireciona para a página inicial se já estiver autenticado
   }
 
   const handleRegister = async (e: React.FormEvent) => {
@@ -35,9 +35,10 @@ const RegisterForm: React.FC = () => {
         setName('');
         setEmail('');
         setPassword('');
-        navigate('/login');
+        navigate('/login'); // Redireciona para a página de login após o registro
       }
     } catch (error: any) {
+      // Exibe mensagem de erro retornada pelo backend
       const errorMessage = error.response?.data?.error || 'Error registering user. Please try again.';
       setMessage(errorMessage);
     } finally {

@@ -9,7 +9,7 @@ const CreateEvent: React.FC = () => {
   const [date, setDate] = useState('');
   const [location, setLocation] = useState('');
   const [status, setStatus] = useState<'EM_BREVE' | 'EM_ANDAMENTO' | 'ENCERRADO'>('EM_BREVE');
-  const [imgURL, setImgURL] = useState<string>('');
+  const [imgURL, setImgURL] = useState<string>(''); // Estado para URL da imagem
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const CreateEvent: React.FC = () => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate('/login');
+      navigate('/login'); // Redireciona para login se não estiver autenticado
     }
   }, [isAuthenticated, navigate]);
 
@@ -41,6 +41,7 @@ const CreateEvent: React.FC = () => {
     try {
       await api.post('/events', { title, description, imgURL, date, location, status });
       setMessage('Evento criado com sucesso!');
+      // Limpar campos após o envio
       setTitle('');
       setDescription('');
       setDate('');
@@ -67,7 +68,7 @@ const CreateEvent: React.FC = () => {
             'Content-Type': 'multipart/form-data',
           },
         });
-        setImgURL(response.data.url);
+        setImgURL(response.data.url); // Supondo que a URL da imagem é retornada na resposta
       } catch (error) {
         console.error('Erro ao fazer upload da imagem', error);
         setMessage('Erro ao fazer upload da imagem. Tente novamente.');

@@ -13,7 +13,7 @@ const EditEvent: React.FC = () => {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    console.log('eventId:', eventId);
+    console.log('eventId:', eventId); // Verifique se eventId está correto
     if (eventId) {
       const fetchEvent = async () => {
         setLoading(true);
@@ -21,6 +21,7 @@ const EditEvent: React.FC = () => {
           const response = await api.get(`/events/${eventId}`);
           const event = response.data;
           
+          // Ajuste o formato da data para datetime-local
           const formattedDate = new Date(event.date).toISOString().slice(0, 16);
 
           setTitle(event.title);
@@ -53,6 +54,7 @@ const EditEvent: React.FC = () => {
     setLoading(true);
 
     try {
+      // Ajuste o formato da data para enviar ao backend
       const formattedDate = new Date(date).toISOString();
 
       await api.put(`/events/${eventId}`, {

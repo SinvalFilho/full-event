@@ -19,7 +19,7 @@ const App: React.FC = () => {
       <Router>
         <div className="flex flex-col min-h-screen">
           <NavBar />
-          <main className="flex-grow pt-16"> {}
+          <main className="flex-grow pt-16"> {/* Ajuste o padding-top para dar espaço à NavBar */}
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/register" element={<PublicRoute element={<RegisterPage />} restricted />} />

@@ -34,6 +34,7 @@ const EventForm: React.FC<{ eventId?: number }> = ({ eventId }) => {
       } else {
         await api.post('/events', { title, description, date, location });
       }
+      // Clear form after submission
       setTitle('');
       setDescription('');
       setDate('');
