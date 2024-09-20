@@ -9,7 +9,7 @@ interface Event {
   date: string;
   location: string;
   status: string;
-  imageUrl: string; // Adicionado campo para URL da imagem
+  imageUrl: string;
 }
 
 const EventList: React.FC = () => {

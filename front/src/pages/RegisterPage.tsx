@@ -10,11 +10,11 @@ const RegisterPage: React.FC = () => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth(); // Usa o contexto de autenticação
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/events'); // Redireciona para a página de eventos se já estiver autenticado
+      navigate('/events');
     }
   }, [isAuthenticated, navigate]);
 
@@ -30,8 +30,8 @@ const RegisterPage: React.FC = () => {
       await api.post('/register', { name, email, password });
       setMessage('Registro realizado com sucesso! Redirecionando para login...');
       setTimeout(() => {
-        navigate('/login'); // Redirecionar após registro
-      }, 2000); // Aguarda 2 segundos antes de redirecionar
+        navigate('/login');
+      }, 2000);
     } catch (error: any) {
       setMessage('Erro ao registrar. Tente novamente.');
     } finally {
